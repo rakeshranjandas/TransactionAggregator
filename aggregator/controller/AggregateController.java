@@ -1,7 +1,7 @@
 package aggregator.controller;
 
 import aggregator.response.Transaction;
-import aggregator.service.TransactionsGetterService;
+import aggregator.service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +17,11 @@ import java.util.List;
 public class AggregateController {
 
     @Autowired
-    TransactionsGetterService transactionsGetterService;
+    TransactionsService transactionsService;
 
     @GetMapping
     public List<Transaction> getTransactions(@RequestParam("account") String account) {
-        return transactionsGetterService.getTransactions(account);
+        return transactionsService.getTransactions(account);
     }
 
 }
